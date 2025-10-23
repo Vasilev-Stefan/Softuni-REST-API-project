@@ -9,7 +9,7 @@ import { generateAuthToken } from "../utils/tokenUtils.js";
 
 async function register(userData) {
     const user = await User.create(userData);
-    
+
     const token = generateAuthToken(user);
 
     return {
@@ -26,7 +26,8 @@ async function login(email, password) {
         throw new Error('Invalid email or password!');
     }
 
-    const isValid = bcrypt.compare(password, user.password);
+    console.log()
+    const isValid = await bcrypt.compare(password, user.password);
 
     if(!isValid){
         throw new Error('Invalid email or password!');

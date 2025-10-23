@@ -20,3 +20,7 @@ userController.post('/login', async (req, res) => {
         res.status(401).json({message: error.message})
     }
 })
+
+userController.get('/logout', async (req, res) => {
+    res.json({message: 'ok'})
+})
