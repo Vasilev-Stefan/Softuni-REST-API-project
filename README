@@ -1,0 +1,55 @@
+# Furniture Store Project
+
+## Initial Setup
+ - [x] Create repository
+ - [x] Initial folder structure
+ - [x] Add client resources and install dependencies `cd client` `npm i`
+ - [x] Add gitignore in client folder
+
+## Startup Client
+ - [ ] Install vite (local development server) `npm i -D vite`
+ - [ ] Setup vite
+
+## Setup REST API
+ - [ ] Initialize project and add .gitignore
+ - [ ] Install and setup express `npm i express`
+ - [ ] Add cors
+ - [ ]  Add furniture controller
+
+## Authentication and Authorization
+ - [ ] Create user controller
+ - [ ] Add json parser
+ - [ ] Add register endpoint
+ - [ ] Add and config database `npm i mongoose`
+ - [ ] Add user model
+ - [ ] Add user service with register method
+ - [ ] Install bcrypt
+ - [ ] Hash password on register
+ - [ ] Add login endpoint and service
+ - [ ] Verify login credentials
+ - [ ] Generate and return token `npm i jsonwebtoken`
+ - [ ] Auto login after register
+ - [ ] Create logout
+ - [ ] Add auth middleware
+  
+## Furniture Endpoints
+ - [ ] Add furniture model
+ - [ ] Add furniture service
+ - [ ] Create furniture endpoint
+ - [ ] Get all furnitures
+ - [ ] Select only needed information for catalog
+ - [ ] Create details endpoint
+ - [ ] Add owner relation to furniture model
+ - [ ] Edit furniture endpoint
+ - [ ] Delete furniture endpoint
+ - [ ] Filter furniture by userId
+
+## Error handling 
+ - [ ] Create error util for message
+ - [ ] Global error handler
+
+## Bonus
+ - [ ] Use env variables `npm i dotenv`
+ - [ ] Build with vite
+ - [ ] Refactor services
+ - [ ] Invalidate token
