@@ -1,5 +1,6 @@
 import User from "../models/user.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 
 
@@ -23,8 +24,19 @@ async function login(email, password) {
         throw new Error('Invalid email or password!');
     }
 
+    const payload = {
+        id: user.id,
+        email: user.email
+    }
+
+    const token = jwt.sign(payload, 'DSADASDASKNGVASJKFNLASJKFNLA', {expiresIn: '2h'});
+
     console.log('User sucessfully logged!');
-    return user;
+    return {
+        email: user.email,
+        accessToken: token,
+        _id: user.id
+    };
 }
 
 export const userService = {

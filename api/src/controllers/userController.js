@@ -14,7 +14,7 @@ userController.post('/login', async (req, res) => {
     
     try {
         const user = await userService.login(email, password);
-        res.json(user)
+        res.status(201).json(user)
     } catch (error) {
         console.log(error)
         res.status(401).json({message: error.message})
