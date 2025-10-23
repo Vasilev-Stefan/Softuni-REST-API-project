@@ -2,13 +2,21 @@ import User from "../models/user.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { generateAuthToken } from "../utils/tokenUtils.js";
+
 
 
 
 async function register(userData) {
     const user = await User.create(userData);
-    console.log(user);
-    return user;
+    
+    const token = generateAuthToken(user);
+
+    return {
+        email: user.email,
+        accessToken: token,
+        _id: user.id
+    };
 }
 
 async function login(email, password) {
@@ -29,9 +37,10 @@ async function login(email, password) {
         email: user.email
     }
 
-    const token = jwt.sign(payload, 'DSADASDASKNGVASJKFNLASJKFNLA', {expiresIn: '2h'});
+    const token = generateAuthToken(user);
 
     console.log('User sucessfully logged!');
+    
     return {
         email: user.email,
         accessToken: token,
