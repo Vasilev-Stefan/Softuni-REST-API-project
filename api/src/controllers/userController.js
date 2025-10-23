@@ -22,5 +22,6 @@ userController.post('/login', async (req, res) => {
 })
 
 userController.get('/logout', async (req, res) => {
+    console.log(req.user)
     res.json({message: 'ok'})
 })

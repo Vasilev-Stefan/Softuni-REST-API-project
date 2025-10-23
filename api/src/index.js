@@ -4,11 +4,15 @@ import mongoose from 'mongoose';
 
 import { furniteController } from './controllers/furnitureController.js';
 import { userController } from './controllers/userController.js';
+import { authMiddleWare } from './middlewares/authMiddleware.js';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+//Middlewares
+app.use(authMiddleWare)
 
 try {
     mongoose.connect('mongodb+srv://sbasilev_db_user:YQMbrqce7VzWmjAR@movies.owquz7p.mongodb.net/')
