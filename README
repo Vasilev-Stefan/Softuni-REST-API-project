@@ -29,7 +29,7 @@
  - [x] Verify login credentials
  - [x] Generate and return token `npm i jsonwebtoken`
  - [x] Auto login after register
- - [ ] Create logout
+ - [x] Create logout
  - [ ] Add auth middleware
   
 ## Furniture Endpoints
