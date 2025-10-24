@@ -13,8 +13,15 @@ async function createFurniture(data) {
     return furniture;
 }
 
+async function getFurnitureById(id) {
+    const item = Furniture.findById(id);
+
+    return item;
+}
+
 export const furnitureService = {
     getAllFurnitures,
-    createFurniture
+    createFurniture,
+    getFurnitureById
 
 }

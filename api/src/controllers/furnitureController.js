@@ -23,3 +23,11 @@ furniteController.post('/catalog', async (req, res) => {
 
     }
 })
+
+furniteController.get('/catalog/:id', async (req, res) => {
+    const id = req.params.id;
+    
+    const item = await furnitureService.getFurnitureById(id);
+
+    res.json(item)
+})
