@@ -7,7 +7,6 @@ async function getAllFurnitures() {
 }
 
 async function createFurniture(data) {
-    console.log(data)
     const furniture = await Furniture.create(data)
 
     return furniture;
@@ -19,9 +18,15 @@ async function getFurnitureById(id) {
     return item;
 }
 
+async function updateFurniture(id, data) {
+    const item = await Furniture.findOneAndUpdate({_id: id}, data, {new: true})
+    return item;
+}
+
 export const furnitureService = {
     getAllFurnitures,
     createFurniture,
-    getFurnitureById
+    getFurnitureById,
+    updateFurniture
 
 }

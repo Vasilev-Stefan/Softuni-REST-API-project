@@ -29,7 +29,27 @@ furniteController.post('/catalog', async (req, res) => {
 furniteController.get('/catalog/:id', async (req, res) => {
     const id = req.params.id;
     
-    const item = await furnitureService.getFurnitureById(id);
+    try {
+        const item = await furnitureService.getFurnitureById(id);
 
-    res.json(item)
+        res.json(item)
+    } catch (err) {
+        res.status(400).json({message: 'Unable to open this furniture!'})
+    }
+
+})
+
+furniteController.put('/catalog/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+
+    try {
+        const item = await furnitureService.updateFurniture(id, data)
+        console.log(item)
+        
+        res.status(214).json(item)
+    } catch (err) {
+        res.status(400).json({message: 'Unable to update item!'})
+    }
+    
 })
