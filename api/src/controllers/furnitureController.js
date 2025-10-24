@@ -1,8 +1,24 @@
 import { Router } from "express";
 
+import { furnitureService } from "../service/furnitureService.js";
+
 export const furniteController = Router();
 
 
 furniteController.get('/catalog', async (req, res) => {
-    res.json([])
+    res.json([]);
+})
+
+furniteController.post('/catalog', async (req, res) => {
+    const data = req.body;
+    
+    
+    try {
+        const item = await furnitureService.createFurniture(data);
+        
+        res.status(201).json(item)
+    } catch (err) {
+        res.status(400).json({message: 'Record not created!'})
+
+    }
 })

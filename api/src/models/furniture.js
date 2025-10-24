@@ -27,7 +27,7 @@ const furnitureSchema = new mongoose.Schema({
         required: true,
         min: [0, 'The price must be a positive number']
     },
-    imageURL: {
+    img: {
         type: String,
         required: true,
     },
