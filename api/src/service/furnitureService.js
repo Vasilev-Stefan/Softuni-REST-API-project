@@ -1,8 +1,13 @@
 import { Furniture } from "../models/furniture.js";
 
 
-async function getAllFurnitures() {
-    const data = Furniture.find().select({img: true, price: true, description: true});
+async function getAllFurnitures(filter) {
+    if(filter){
+        const data = await Furniture.find({_ownerId: filter})
+        return data;
+    }
+
+    const data = await Furniture.find().select({img: true, price: true, description: true});
     return data;
 }
 

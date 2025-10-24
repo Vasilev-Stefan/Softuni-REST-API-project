@@ -42,11 +42,7 @@
  - [x] Add owner relation to furniture model
  - [x] Edit furniture endpoint
  - [x] Delete furniture endpoint
- - [ ] Filter furniture by userId
-
-## Error handling 
- - [ ] Create error util for message
- - [ ] Global error handler
+ - [x] Filter furniture by userId
 
 ## Bonus
  - [ ] Use env variables `npm i dotenv`

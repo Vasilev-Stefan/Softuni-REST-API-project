@@ -6,7 +6,19 @@ export const furniteController = Router();
 
 
 furniteController.get('/catalog', async (req, res) => {
-    const items = await furnitureService.getAllFurnitures()
+    let queryId = undefined;
+    if(!!req.query.where){
+        queryId =  req.query?.where?.split('"').at(1)
+        console.log(queryId);
+    }
+
+    let items = '';
+    if(queryId){
+        items = await furnitureService.getAllFurnitures(queryId)
+    } else {
+        items = await furnitureService.getAllFurnitures()
+    }
+
     res.json(items);
 })
 
