@@ -23,10 +23,16 @@ async function updateFurniture(id, data) {
     return item;
 }
 
+async function deleteFurniture(id) {
+    await Furniture.deleteOne({_id: id});
+    return;
+}
+
 export const furnitureService = {
     getAllFurnitures,
     createFurniture,
     getFurnitureById,
-    updateFurniture
+    updateFurniture,
+    deleteFurniture
 
 }

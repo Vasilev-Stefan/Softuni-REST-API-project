@@ -53,3 +53,15 @@ furniteController.put('/catalog/:id', async (req, res) => {
     }
     
 })
+
+furniteController.delete('/catalog/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        furnitureService.deleteFurniture(id);
+
+        res.json({message: 'ok'})
+    } catch (err) {
+        res.status(400).json({message: 'Unable to delete this furniture'})
+    }
+})
