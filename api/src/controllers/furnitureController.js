@@ -12,7 +12,9 @@ furniteController.get('/catalog', async (req, res) => {
 
 furniteController.post('/catalog', async (req, res) => {
     const data = req.body;
-    
+    const creatorId = req.user.id;
+
+    data._ownerId = creatorId    
     
     try {
         const item = await furnitureService.createFurniture(data);
