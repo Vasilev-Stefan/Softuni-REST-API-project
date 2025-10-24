@@ -2,7 +2,8 @@ import { Furniture } from "../models/furniture.js";
 
 
 async function getAllFurnitures() {
-    const data = Furniture.find()
+    const data = Furniture.find();
+    return data;
 }
 
 async function createFurniture(data) {

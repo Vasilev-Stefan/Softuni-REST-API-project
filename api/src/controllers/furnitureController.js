@@ -6,7 +6,8 @@ export const furniteController = Router();
 
 
 furniteController.get('/catalog', async (req, res) => {
-    res.json([]);
+    const items = await furnitureService.getAllFurnitures()
+    res.json(items);
 })
 
 furniteController.post('/catalog', async (req, res) => {
